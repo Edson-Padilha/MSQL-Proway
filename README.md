@@ -1,2 +1,2 @@
 # MSQL-Proway
-Curso básico na Proway
+Curso SuperDev na Proway
