@@ -1,0 +1,35 @@
+use super_dev;
+create table pessoa(
+	id int primary key auto_increment,
+    NOME varchar(100),	
+    IDADE int,
+    TELEFONE varchar(15), 	
+    EMAIL	varchar(100),    
+    SEXO	CHAR,
+    CPF	    varchar(15),
+    RG		varchar(20),
+    data_nascimento date,
+    data_cadatros timestamp default now()
+);
+
+create table endereco(
+	ID int primary key auto_increment,
+	LOGRADOURO varchar(100) ,
+	COMPLEMENTO varchar(50)	,
+    CIDADE	varchar(100),
+    BAIRRO	varchar(100),
+    UF	varchar(2),
+    CEP varchar(20)
+);
+
+desc pessoa;
+
+-- adicionar uma coluna nova com o mesmo tipo de dado da tabela que ira referencia 
+alter table pessoa add column id_endereco int;
+
+-- configurar a coluna como FK 
+alter table pessoa add foreign key (id_endereco) references endereco(id);
+
+insert into endereco(logradouro, complemento, cidade, bairro, uf, cep) values ('Rua João januario Ayrosio','APTO 705','Jaragua do Sul','Jaragua Esquerdo','SC','89260-665' );
+
+-- show schema
